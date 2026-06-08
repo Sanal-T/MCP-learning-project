@@ -17,7 +17,9 @@ setup and end-to-end use will be added in later steps.
 
 ## Setup
 
-Create and activate a virtual environment, then install the project and development tools:
+Create and activate a virtual environment, then install the project and development
+tools. The development install includes the MCP command-line tools used to open the
+Inspector during learning:
 
 ```powershell
 py -3.11 -m venv .venv

@@ -7,8 +7,8 @@ local reference documents.
 ## Project status
 
 This repository is being built in small steps. The project package, fictional sample
-data, and plain Python retrieval functions are in place. MCP tool registration and
-client setup will be added in later steps.
+data, plain Python retrieval functions, and MCP stdio server are in place. Client
+setup and end-to-end use will be added in later steps.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-Server launch and MCP host configuration instructions will be added when those parts exist.
+MCP host configuration instructions will be added when we connect a client.
 
 ## Create the sample database
 
@@ -39,3 +39,13 @@ python scripts/seed_database.py
 The generated database is local and is not committed to Git. The retrieval functions
 are available as `mcp_learning_project.database.get_product` and
 `mcp_learning_project.document_search.search_documents`.
+
+## Start the MCP server
+
+After installing the project, launch the local stdio server with:
+
+```powershell
+python -m mcp_learning_project.server
+```
+
+The server uses stdout for MCP protocol messages. It does not print a startup banner.

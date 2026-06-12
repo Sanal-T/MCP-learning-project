@@ -51,3 +51,15 @@ python -m mcp_learning_project.server
 ```
 
 The server uses stdout for MCP protocol messages. It does not print a startup banner.
+
+## Discover and call the tools
+
+Run the sample client from the project folder:
+
+```powershell
+.venv\Scripts\python.exe scripts\demo_client.py
+```
+
+It starts the server as a child process over stdio, asks the server which tools it
+provides, then calls each tool once and prints the results. This shows the MCP
+connection without needing an AI model or a separate Inspector window.

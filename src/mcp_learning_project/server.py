@@ -6,9 +6,9 @@ from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 from pydantic import Field
 
-from .config import DEFAULT_SEARCH_RESULTS, MAX_SEARCH_RESULTS
-from .database import get_product
-from .document_search import search_documents as search_local_documents
+from mcp_learning_project.config import DEFAULT_SEARCH_RESULTS, MAX_SEARCH_RESULTS
+from mcp_learning_project.database import get_product
+from mcp_learning_project.document_search import search_documents as search_local_documents
 
 
 mcp = MCPServer("MCP Learning Project")

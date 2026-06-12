@@ -63,3 +63,14 @@ Run the sample client from the project folder:
 It starts the server as a child process over stdio, asks the server which tools it
 provides, then calls each tool once and prints the results. This shows the MCP
 connection without needing an AI model or a separate Inspector window.
+
+## Connect Antigravity IDE
+
+The project includes `.agents/mcp_config.json`, which tells Antigravity to start the
+server with this project's virtual environment. In Antigravity, open the agent panel's
+`...` menu, choose **MCP Servers**, then **Manage MCP Servers** and reload the
+configuration. The server should appear as `mcp-learning-project`, with both tools
+available to the agent. Antigravity asks before running MCP tools by default.
+
+The configuration uses this checkout's absolute Windows path. If you move or rename
+the project folder, update the `command` and `cwd` paths in that JSON file.

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mcp-learning-project": {
+      "command": "C:\\Users\\SANAL\\Desktop\\Projects\\MCP-learning-project\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "mcp_learning_project.server"
+      ],
+      "cwd": "C:\\Users\\SANAL\\Desktop\\Projects\\MCP-learning-project"
+    }
+  }
+}

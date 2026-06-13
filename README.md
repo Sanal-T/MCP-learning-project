@@ -7,8 +7,8 @@ local reference documents.
 ## Project status
 
 This repository is being built in small steps. The project package, fictional sample
-data, plain Python retrieval functions, and MCP stdio server are in place. Client
-setup and end-to-end use will be added in later steps.
+data, plain Python retrieval functions, MCP stdio server, and Antigravity connection
+are in place. Both tools have been manually exercised through Antigravity.
 
 ## Requirements
 
@@ -18,8 +18,7 @@ setup and end-to-end use will be added in later steps.
 ## Setup
 
 Create and activate a virtual environment, then install the project and development
-tools. The development install includes the MCP command-line tools used to open the
-Inspector during learning:
+tools:
 
 ```powershell
 py -3.11 -m venv .venv
@@ -27,8 +26,6 @@ py -3.11 -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
-
-MCP host configuration instructions will be added when we connect a client.
 
 ## Create the sample database
 
@@ -68,9 +65,25 @@ connection without needing an AI model or a separate Inspector window.
 
 The project includes `.agents/mcp_config.json`, which tells Antigravity to start the
 server with this project's virtual environment. In Antigravity, open the agent panel's
-`...` menu, choose **MCP Servers**, then **Manage MCP Servers** and reload the
-configuration. The server should appear as `mcp-learning-project`, with both tools
-available to the agent. Antigravity asks before running MCP tools by default.
+`...` menu, choose **MCP Servers**, then **Manage MCP Servers** and click **Refresh**.
+The server should appear as `mcp-learning-project`, with both tools available to the
+agent. If it does not, open **View raw config** and add the same server entry to the
+config file Antigravity opens. Antigravity asks before running MCP tools by default.
 
 The configuration uses this checkout's absolute Windows path. If you move or rename
 the project folder, update the `command` and `cwd` paths in that JSON file.
+
+## Manual end-to-end check
+
+The following calls were manually verified through Antigravity IDE:
+
+1. Antigravity discovered `lookup_sample_record` and `search_documents`.
+2. Looking up `PROD-003` returned the Field Notebook, priced at 900 cents, and marked
+   it in stock.
+3. Searching for the return window found `support_policy.md`, which says returns are
+   allowed within 30 days when the item is in good condition.
+4. Asking how many business days a refund takes returned that the documents do not
+   specify the timing.
+
+This shows the host can discover both tools, use their results in an answer, and say
+when the sample documents do not contain an answer.

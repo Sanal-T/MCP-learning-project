@@ -27,6 +27,17 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
+## Run the unit tests
+
+Run the checks for product lookup and document search with:
+
+```powershell
+python -m pytest
+```
+
+These tests use temporary sample data, so they do not change the project's database
+or documents.
+
 ## Create the sample database
 
 After installing the project, create the local SQLite database with:

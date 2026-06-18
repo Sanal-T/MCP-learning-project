@@ -71,6 +71,17 @@ def search_documents(
         raise ToolError(str(error)) from error
 
 
+# The SDK builds an input model for each function. Its default allows unknown
+# fields, so make the two public tool contracts strict and publish that in JSON
+# Schema as additionalProperties=false.
+for _tool_name in ("lookup_sample_record", "search_documents"):
+    _tool = mcp._tool_manager.get_tool(_tool_name)
+    _argument_model = _tool.fn_metadata.arg_model
+    _argument_model.model_config["extra"] = "forbid"
+    _argument_model.model_rebuild(force=True)
+    _tool.parameters = _argument_model.model_json_schema()
+
+
 if __name__ == "__main__":
     # Stdio reserves stdout for MCP messages. Do not print or log there.
     mcp.run(transport="stdio")

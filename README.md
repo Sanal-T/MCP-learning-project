@@ -29,7 +29,7 @@ python -m pip install -e ".[dev]"
 
 ## Run the unit tests
 
-Run the checks for product lookup and document search with:
+Run the checks for product lookup, document search, and the MCP tool contracts with:
 
 ```powershell
 python -m pytest
